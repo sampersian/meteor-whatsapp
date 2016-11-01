@@ -13,9 +13,16 @@ export default class ChatsCtrl extends Controller {
     })
   }
 
-  remove(chat) {
-    Chats.remove(chat._id);
+  showNewChatModal() {
+    this.NewChat.showModal();
   }
+
+  remove(chat) {
+    this.callMethod('removeChat', chat._id);
+  }
+
+
 }
 
 ChatsCtrl.$name = 'ChatsCtrl';
+ChatsCtrl.$inject = ['NewChat'];
